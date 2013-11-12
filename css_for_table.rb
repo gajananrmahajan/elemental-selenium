@@ -30,4 +30,13 @@ run do
   end
 
   (dues_values == dues_values.sort).should == false
+
+  first_names = @driver.find_elements(:css, '#table2 tbody .first-name')
+  first_name_values = []
+  first_names.each do |first_name|
+    first_name_values << first_name.text
+  end
+
+  first_name_values.size.should == 4
+
 end
